@@ -1,10 +1,209 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Fallout Character Sheet</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
 </head>
 <body>
+<form >
+<div class="container">
+    <h1>Fallout Character Sheet</h1>
 
+    <div class="form-grid">
+        <!--Identity -->
+        <fieldset>
+            <legend>Identity</legend>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" required/>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="race">Race:</label>
+                    <input type="text" name="race" id="race"/>
+                </div>
+                <div class="form-group">
+                    <label for="level">Level:</label>
+                    <input type="number" name="level" id="level" min="1" max="50"/>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="xp">Experience Points:</label>
+                    <input type="number" name="xp" id="xp" min="0"/>
+                </div>
+                <div class="form-group">
+                    <label for="caps">Caps:</label>
+                    <input type="number" name="caps" id="caps" min="0"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="background">Background:</label>
+                <textarea name="background" id="background" placeholder="Character's backstory..."></textarea>
+            </div>
+        </fieldset>
+
+        <!-- SPECIAL Attributes -->
+        <fieldset>
+            <legend>S.P.E.C.I.A.L. Attributes</legend>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="strength">Strength:</label>
+                    <input type="number" name="strength" id="strength" min="1" max="10"/>
+                </div>
+                <div class="form-group">
+                    <label for="perception">Perception:</label>
+                    <input type="number" name="perception" id="perception" min="1" max="10"/>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="endurance">Endurance:</label>
+                    <input type="number" name="endurance" id="endurance" min="1" max="10"/>
+                </div>
+                <div class="form-group">
+                    <label for="charisma">Charisma:</label>
+                    <input type="number" name="charisma" id="charisma" min="1" max="10"/>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="intelligence">Intelligence:</label>
+                    <input type="number" name="intelligence" id="intelligence" min="1" max="10"/>
+                </div>
+                <div class="form-group">
+                    <label for="agility">Agility:</label>
+                    <input type="number" name="agility" id="agility" min="1" max="10"/>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="luck">Luck:</label>
+                    <input type="number" name="luck" id="luck" min="1" max="10"/>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Skills -->
+        <fieldset>
+            <legend>Skills</legend>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="guns">Guns:</label>
+                    <input type="number" name="guns" id="guns" min="0" max="100"/>
+                </div>
+                <div class="form-group">
+                    <label for="energyWeapons">Energy Weapons:</label>
+                    <input type="number" name="energyWeapons" id="energyWeapons" min="0" max="100"/>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="meleeWeapons">Melee Weapons:</label>
+                    <input type="number" name="meleeWeapons" id="meleeWeapons" min="0" max="100"/>
+                </div>
+                <div class="form-group">
+                    <label for="unarmed">Unarmed:</label>
+                    <input type="number" name="unarmed" id="unarmed" min="0" max="100"/>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="sneak">Sneak:</label>
+                    <input type="number" name="sneak" id="sneak" min="0" max="100"/>
+                </div>
+                <div class="form-group">
+                    <label for="speech">Speech:</label>
+                    <input type="number" name="speech" id="speech" min="0" max="100"/>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="barter">Barter:</label>
+                    <input type="number" name="barter" id="barter" min="0" max="100"/>
+                </div>
+                <div class="form-group">
+                    <label for="medicine">Medicine:</label>
+                    <input type="number" name="medicine" id="medicine" min="0" max="100"/>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="science">Science:</label>
+                    <input type="number" name="science" id="science" min="0" max="100"/>
+                </div>
+                <div class="form-group">
+                    <label for="survival">Survival:</label>
+                    <input type="number" name="survival" id="survival" min="0" max="100"/>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Weapons -->
+        <fieldset>
+            <legend>Weapons</legend>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Weapon Name</label><input type="text">
+                </div>
+                <div class="form-group">
+                    <label>Attack</label><input type="text">
+                </div>
+                <div class="form-group">
+                    <label>Damage</label><input type="text">
+                </div>
+                <div class="form-group">
+                    <label>Range</label><input type="text">
+                </div>
+            </div>
+        </fieldset>
+
+
+        <fieldset>
+            <legend>Stats</legend>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>AC</label><input type="number">
+                </div>
+                <div class="form-group">
+                    <label>HP</label><input type="number">
+                </div>
+                <div class="form-group">
+                    <label>Stamina</label><input type="number">
+                </div>
+                <div class="form-group">
+                    <label>Action Points</label><input type="number">
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Conditions</legend>
+            <textarea placeholder="Current Conditions"></textarea>
+        </fieldset>
+
+        <fieldset>
+            <legend>Traits & Perks</legend>
+            <textarea placeholder="Traits and perks"></textarea>
+        </fieldset>
+
+        <fieldset>
+            <legend>Inventory</legend>
+            <div class="form-row">
+                <div class="form-group"><label>Caps</label><input type="number"></div>
+                <div class="form-group"><label>Carry Load</label><input type="number"></div>
+            </div>
+            <textarea placeholder="Inventory Notes"></textarea>
+        </fieldset>
+    </div>
+
+    <div class="button-group">
+        <button type="submit">Save Character</button>
+        <button type="reset">Reset Form</button>
+        <button type="button">View All Characters</button>
+    </div>
+</div>
+</form>
 </body>
 </html>

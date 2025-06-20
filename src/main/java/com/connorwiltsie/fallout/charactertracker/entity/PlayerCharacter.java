@@ -1,14 +1,14 @@
 package com.connorwiltsie.fallout.charactertracker.entity;
-import java.persistence.*;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "character")
+@Table(name = "player_character")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-class Character {
+public class PlayerCharacter {
     @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

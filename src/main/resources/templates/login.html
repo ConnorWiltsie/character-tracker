@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Dweller Login</title>
-    <link th:href="@{/static/styles.css}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" th:href="@{styles.css}" type="text/css"/>
 </head>
 <body>
-<form th:action="@{/login}" th:object="${account}" method="post">
-    <label for="username">Username</label>
-    <input type="text" id="username" th:field="*{username}"/>
+<div class = "login">
+    <h1>Welcome to Vault 54! Sign in Below</h1>
+    <form class="login-form" method="post" th:action="@{/login}" th:object="${account}">
+        <label for="username">Username</label>
+        <input id="username" th:field="*{username}" type="text"/>
 
-    <label for="password">Password</label>
-    <input type="password" id="password" th:field="*{password}"/>
+        <label for="password">Password</label>
+        <input id="password" th:field="*{password}" type="password"/>
 
-    <br/>
-    <button type="submit">Login</button>
+        <br/>
+        <button type="submit">Login</button>
+        <a th:href="@{/register}">Register</a>
 
-</form>
-<a th:href="@{/register}">Register</a>
+    </form>
+</div>
+
 </body>
 </html>

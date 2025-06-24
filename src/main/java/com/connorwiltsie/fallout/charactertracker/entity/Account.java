@@ -19,5 +19,8 @@ public class Account {
     private int userId;
 
     private String username;
+
     private String password;
+
+    private String role = "USER";
 }

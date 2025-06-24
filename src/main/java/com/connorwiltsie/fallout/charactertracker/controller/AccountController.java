@@ -12,13 +12,16 @@ import com.connorwiltsie.fallout.charactertracker.exception.*;
 public class AccountController {
 
     private final AccountService accountService;
+
     @Autowired
     public AccountController(AccountService accountService) {
         this.accountService = accountService;
     }
 
     @GetMapping ("/")
-    public String login(Model model) {
+    public String login (Model model) {
+        Account account = new Account();
+        model.addAttribute("account", account);
         return "login";
     }
 
@@ -42,4 +45,5 @@ public class AccountController {
         }
 
     }
+
 }

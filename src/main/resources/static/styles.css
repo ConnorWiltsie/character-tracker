@@ -14,6 +14,7 @@ body {
     font-size: 16px;
     line-height: 1.4;
     text-shadow: 0 0 5px #00ff00;
+    /*Green fallout computer background*/
     background-image: repeating-linear-gradient(
         to bottom,
         rgba(57, 255, 20, 0.05) 0px,
@@ -23,6 +24,18 @@ body {
     );
       background-size: 100% 4px;
 
+    /*Metal Border*/
+    border: 20px solid #555;
+        background-clip: padding-box;
+        box-shadow:
+            inset 0 0 0 2px #888,
+            inset 0 0 0 4px #444,
+            inset 0 0 15px rgba(0,0,0,0.8),
+            0 0 30px rgba(0,0,0,0.6);
+        min-height: 100vh;
+        box-sizing: border-box;
+
+
 }
 
 .login {
@@ -31,7 +44,7 @@ body {
     align-items: center;
     flex-direction: column;
     min-height: 100vh;
-    border: 15px solid #0f1e0f;
+
 }
 
 .login-form {
@@ -39,4 +52,80 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 5px;
+}
+.subtitle {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.header {
+    display:flex;
+    margin: 10px;
+    flex-Direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.footer {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+input[type="text"],
+input[type="password"] {
+    display: flex;
+    font-family: 'VT323', monospace;
+    color: #00ff00;
+    background-color: transparent;
+    border: 1px solid #00ff00;
+    outline: none;
+    text-align: center;
+    padding: 5px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border: 1px solid #00ff00;
+    box-shadow: 0 0 5px #00ff00; /* Glowing effect when focused */
+}
+
+button[type="submit"] {
+    display: flex;
+    font-family: 'VT323', monospace;
+    color: #00ff00;
+    background-color:transparent;
+    border-color: transparent;
+    text-shadow: 0 0 5px #00ff00;
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+a {
+    color: #00ff00;
+    text-decoration: none; /* Removes underline */
+    font-family: 'VT323', monospace;
+    margin-left: 5px;
+}
+
+a:visited {
+    color: #00ff00; /* Keeps green after being clicked */
+}
+
+a:hover {
+    color: #00ff00; /* Keeps green on hover */
+    text-shadow: 0 0 5px #00ff00; /* Optional: adds glow on hover */
+}
+
+a:active {
+    color: #00ff00; /* Keeps green while being clicked */
 }

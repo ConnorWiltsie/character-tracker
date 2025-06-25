@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Dweller Login</title>
-    <link rel="stylesheet" th:href="@{styles.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/styles.css}" type="text/css"/>
 </head>
 <body>
 <div class = "login">
-    <h1>Welcome to Vault 54! Sign in Below</h1>
+    <div class = "header">
+        <img th:src = "@{/Vault-Tec-Vintage.png}" alt = "Vault-Tec-Logo">
+        <h1>Vault-Tec Database</h1>
+        <div class = "subtitle">
+            <h3>Character Access Terminal</h3>
+        </div>
+
+    </div>
+
     <form class="login-form" method="post" th:action="@{/login}" th:object="${account}">
+
         <label for="username">Username</label>
         <input id="username" th:field="*{username}" type="text"/>
 
@@ -16,8 +25,10 @@
         <input id="password" th:field="*{password}" type="password"/>
 
         <br/>
+        <div class = "footer">
         <button type="submit">Login</button>
         <a th:href="@{/register}">Register</a>
+        </div>
 
     </form>
 </div>

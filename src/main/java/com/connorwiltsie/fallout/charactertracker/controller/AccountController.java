@@ -18,7 +18,7 @@ public class AccountController {
         this.accountService = accountService;
     }
 
-    @GetMapping ("/")
+    @GetMapping ("/login")
     public String login (Model model) {
         Account account = new Account();
         model.addAttribute("account", account);

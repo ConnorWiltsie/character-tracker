@@ -3,21 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>New Dweller Registration</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" type="text/css"/>
 </head>
 <body>
 
-<h1>New Dweller Registration</h1>
-
-<form th:action="@{/register/save}" th:object="${account}" method="post">
+<form class = " registration" th:action="@{/register/save}" th:object="${account}" method="post">
+    <img src = "@{/Vault-Tec-Vintage.png}" alt = "Vault-Tec-Logo">
+    <div class = "header">
+        <h1>New Dweller Registration</h1>
+    </div>
     <label for="username">Username</label>
     <input type="text" id="username" th:field="*{username}" />
 
     <label for="password">Password</label>
     <input type="password" id="password" th:field="*{password}" />
 
-    <br/>
-    <button type="submit">Register</button>
+    <div class = footer>
+        <button type="submit">Register</button>
+        <a th:href="@{/login}">Login</a>
+    </div>
+
 </form>
-<a th:href="@{/login}">Login</a>
+
+
+
 </body>
 </html>

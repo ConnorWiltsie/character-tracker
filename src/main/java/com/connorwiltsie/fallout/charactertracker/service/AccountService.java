@@ -1,6 +1,8 @@
 package com.connorwiltsie.fallout.charactertracker.service;
 
 import com.connorwiltsie.fallout.charactertracker.entity.*;
+import jakarta.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,6 +20,7 @@ public class AccountService implements UserDetailsService {
     private final AccountRepository accountRepository;
     private final PasswordEncoder passwordEncoder;
 
+    @Autowired
     public AccountService (AccountRepository accountRepository, PasswordEncoder passwordEncoder) {
         this.accountRepository = accountRepository;
         this.passwordEncoder = passwordEncoder;
@@ -38,6 +41,15 @@ public class AccountService implements UserDetailsService {
 
     }
 
+    public int getUserIdByUsername(String username) throws ResourceNotFoundException {
+        if (accountRepository.findByUsername(username).isEmpty()) {
+            throw new ResourceNotFoundException("account not found");
+        }
+        else {
+            Account account = accountRepository.findByUsername(username).get();
+            return account.getUserId();
+        }
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

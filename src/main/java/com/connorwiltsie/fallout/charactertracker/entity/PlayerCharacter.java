@@ -13,6 +13,9 @@ public class PlayerCharacter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    //Associated Player
+    private int playerID;
     
     //General character information
     private String name;

@@ -6,8 +6,298 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" type="text/css"/>
 </head>
 <body>
+<div class = "title">
+    <h1>Character Create</h1>
+</div>
 
+<!-- Form for the whole character creation webpage -->
+<form class = "character-create-form" method = "post" th:action="@{/character-create}" th:object="${playerCharacter}">
+
+    <div class = "section-container">
+    <h2>General Information</h2>
+    <!-- General Information box -->
+    <div class = "character-create-box">
+
+    <!-- There is a form-row div for each input to space them properly -->
+    <div class = "form-row">
+    <label for="name">Name</label>
+    <input id="name" th:field="*{name}" type="text"/>
+    </div>
+
+
+    <div class = "form-row">
+    <label for="race">Race</label>
+    <input id="race" th:field="*{race}" type="text"/>
+    </div>
+
+    <div class = "form-row">
+    <label for="background">Background</label>
+    <input id="background" th:field="*{background}" type="text"/>
+    </div>
+
+    <div class = "form-row">
+    <label for="level">Level</label>
+    <input id="level" th:field="*{level}" type="number" min="1" max="30"/>
+    </div>
+
+    <div class = "form-row">
+    <label for="xp">XP</label>
+    <input id="xp" th:field="*{xp}" type="number" min="0" max="999"/>
+    </div>
+    </div>
+    </div>
+
+    <!-- S.P.E.C.I.A.L Stats -->
+    <div class = "section-container">
+    <h2>S.P.E.C.I.A.L</h2>
+    <div class = "character-create-box">
+
+        <!-- There is a form-row div for each input to space them properly -->
+        <div class = "form-row">
+            <label for="strength">Strength</label>
+            <input id="strength" th:field="*{strength}" type="number" min="1" max="10"/>
+        </div>
+
+        <div class = "form-row">
+            <label for="perception">Perception</label>
+            <input id="perception" th:field="*{perception}" type="number" min="1" max="10"/>
+        </div>
+
+        <div class = "form-row">
+            <label for="endurance">Endurance</label>
+            <input id="endurance" th:field="*{endurance}" type="number" min="1" max="10"/>
+        </div>
+
+        <div class = "form-row">
+            <label for="charisma">Charisma</label>
+            <input id="charisma" th:field="*{charisma}" type="number" min="1" max="10"/>
+        </div>
+
+        <div class = "form-row">
+            <label for="intelligence">Intelligence</label>
+            <input id="intelligence" th:field="*{intelligence}" type="number" min="1" max="10"/>
+        </div>
+
+        <div class = "form-row">
+            <label for="agility">Agility</label>
+            <input id="agility" th:field="*{agility}" type="number" min="1" max="10"/>
+        </div>
+
+        <div class = "form-row">
+            <label for="luck">Luck</label>
+            <input id="luck" th:field="*{luck}" type="number" min="1" max="10"/>
+        </div>
+
+    </div>
+    </div>
+
+    <!-- Skills -->
+    <div class = "section-container">
+        <h2>Skills</h2>
+        <div class = "character-create-box">
+
+            <div class = "form-row">
+                <label for="barter">Barter</label>
+                <input id="barter" th:field="*{barter}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="breach">Breach</label>
+                <input id="breach" th:field="*{breach}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="crafting">Crafting</label>
+                <input id="crafting" th:field="*{crafting}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="energyWeapons">Energy Weapons</label>
+                <input id="energyWeapons" th:field="*{energyWeapons}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="explosives">Explosives</label>
+                <input id="explosives" th:field="*{explosives}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="guns">Guns</label>
+                <input id="guns" th:field="*{guns}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="intimidation">Intimidation</label>
+                <input id="intimidation" th:field="*{intimidation}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="medicine">Medicine</label>
+                <input id="medicine" th:field="*{medicine}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="meleeWeapons">Melee Weapons</label>
+                <input id="meleeWeapons" th:field="*{meleeWeapons}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="science">Science</label>
+                <input id="science" th:field="*{science}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="sneak">Sneak</label>
+                <input id="sneak" th:field="*{sneak}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="speech">Speech</label>
+                <input id="speech" th:field="*{speech}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="survival">Survival</label>
+                <input id="survival" th:field="*{survival}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="unarmed">Unarmed</label>
+                <input id="unarmed" th:field="*{unarmed}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="pilot">Pilot</label>
+                <input id="pilot" th:field="*{pilot}" type="number"/>
+            </div>
+
+        </div>
+    </div>
+    <!-- Health and combat stats -->
+    <div class = "section-container">
+        <h2>Stats</h2>
+        <div class = "character-create-box">
+
+            <div class = "form-row">
+                <label for="armorClass">Barter</label>
+                <input id="armorClass" th:field="*{armorClass}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="damageThreshold">Breach</label>
+                <input id="damageThreshold" th:field="*{damageThreshold}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="staminaPoints">Crafting</label>
+                <input id="staminaPoints" th:field="*{staminaPoints}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="hitPoints">Energy Weapons</label>
+                <input id="hitPoints" th:field="*{hitPoints}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="healingRate">Explosives</label>
+                <input id="healingRate" th:field="*{healingRate}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="actionPoints">Guns</label>
+                <input id="actionPoints" th:field="*{actionPoints}" type="number"/>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Fatigue/Survival Conditions
+    private int hungerLevel;
+    private int dehydrationLevel;
+    private int exhaustionLevel;
+    private int radiationLevel;
+    private int radsLevel;
+    -->
+    <div class = "section-container">
+        <h2>Survival</h2>
+        <div class = "character-create-box">
+
+            <div class = "form-row">
+                <label for="hungerLevel">Barter</label>
+                <input id="hungerLevel" th:field="*{hungerLevel}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="dehydrationLevel">Breach</label>
+                <input id="dehydrationLevel" th:field="*{dehydrationLevel}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="exhaustionLevel">Crafting</label>
+                <input id="exhaustionLevel" th:field="*{exhaustionLevel}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="radiationLevel">Energy Weapons</label>
+                <input id="radiationLevel" th:field="*{radiationLevel}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="radsLevel">Explosives</label>
+                <input id="radsLevel" th:field="*{radsLevel}" type="number"/>
+            </div>
+
+        </div>
+    </div>
+
+    <!--
+    Derived/conditional states
+    private String currentConditions;
+    private String combatSequence;
+    private String passiveSense;
+    private String partyNerve;
+    private String groupSneak;
+     -->
+
+    <div class = "section-container">
+        <h2>Conditional/Derived</h2>
+        <div class = "character-create-box">
+
+            <div class = "form-row">
+                <label for="currentConditions">Barter</label>
+                <input id="currentConditions" th:field="*{currentConditions}" type="text"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="combatSequence">Breach</label>
+                <input id="combatSequence" th:field="*{combatSequence}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="passiveSense">Crafting</label>
+                <input id="passiveSense" th:field="*{passiveSense}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="partyNerve">Energy Weapons</label>
+                <input id="partyNerve" th:field="*{partyNerve}" type="number"/>
+            </div>
+
+            <div class = "form-row">
+                <label for="groupSneak">Explosives</label>
+                <input id="groupSneak" th:field="*{groupSneak}" type="number"/>
+            </div>
+
+        </div>
+    </div>
+
+    <div class = footer>
+        <button type="submit">Create</button>
+    </div>
+
+</form>
 </body>
 </html>

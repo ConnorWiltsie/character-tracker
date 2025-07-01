@@ -9,9 +9,12 @@
 </head>
 <body>
 <h1>Character List</h1>
-<tr th:each = "character : ${characters}">
-    <td th:text="${character.name}"></td>
-</tr>
+<div class = "character-list">
+    <div th:each = "character : ${characters}">
+        <a th:href="@{/character-view/{id}(id=${character.id})}"
+           th:text="${character.name}">Character Name</a>
+    </div>
+</div>
 <a th:href="@{character-create}">Create Character</a>
 </body>
 </html>

@@ -41,7 +41,7 @@ public class AccountService implements UserDetailsService {
 
     }
 
-    public int getUserIdByUsername(String username) throws ResourceNotFoundException {
+    public long getUserIdByUsername(String username) throws ResourceNotFoundException {
         if (accountRepository.findByUsername(username).isEmpty()) {
             throw new ResourceNotFoundException("account not found");
         }

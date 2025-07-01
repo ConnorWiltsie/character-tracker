@@ -38,7 +38,7 @@ public class PlayerCharacterController {
     @PostMapping ("/character-create")
     public String createCharacter(@ModelAttribute("playerCharacter") PlayerCharacter playerCharacter, Model model, Authentication authentication) {
 
-        int userId = accountService.getUserIdByUsername(authentication.getName());
+        long userId = accountService.getUserIdByUsername(authentication.getName());
         playerCharacter.setPlayerID(userId);
         System.out.println(playerCharacterService.registerCharacter(playerCharacter));
         return "character-create";
@@ -46,9 +46,16 @@ public class PlayerCharacterController {
 
     @GetMapping ("/get-characters")
     public String getCharacters(Authentication authentication, Model model) {
-        int playerId = accountService.getUserIdByUsername(authentication.getName());
+        long playerId = accountService.getUserIdByUsername(authentication.getName());
         model.addAttribute("characters", playerCharacterService.getCharacters(playerId));
         return "character-list";
     }
+
+    @GetMapping ("/character-view/{id}")
+    public String viewCharacter(@PathVariable long id, Authentication authentication, Model model) {
+        return "character-view";
+    }
+
+
 
 }

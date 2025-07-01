@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface PlayerCharacterRepository extends JpaRepository<PlayerCharacter, Long>{
-    List<PlayerCharacter> findAllByPlayerID(int playerId);
+    List<PlayerCharacter> findAllByPlayerID(long playerId);
 }

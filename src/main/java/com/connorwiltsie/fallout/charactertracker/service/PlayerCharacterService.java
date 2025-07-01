@@ -1,12 +1,14 @@
 package com.connorwiltsie.fallout.charactertracker.service;
 
 import com.connorwiltsie.fallout.charactertracker.entity.PlayerCharacter;
+import com.connorwiltsie.fallout.charactertracker.exception.ResourceNotFoundException;
 import com.connorwiltsie.fallout.charactertracker.repository.AccountRepository;
 import com.connorwiltsie.fallout.charactertracker.repository.PlayerCharacterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PlayerCharacterService {
@@ -19,11 +21,21 @@ public class PlayerCharacterService {
         this.accountRepository = accountRepository;
     }
 
+    public PlayerCharacter findById(long id) {
+        Optional<PlayerCharacter> playerCharacter = playerCharacterRepository.findById(id);
+        if (playerCharacter.isEmpty()) {
+            throw new ResourceNotFoundException("Character not found");
+        }
+        else {
+            return playerCharacter.get();
+        }
+    }
+
     public PlayerCharacter registerCharacter(PlayerCharacter playerCharacter) {
         return playerCharacterRepository.save(playerCharacter);
     }
 
-    public List<PlayerCharacter> getCharacters(int playerId) {
+    public List<PlayerCharacter> getCharacters(long playerId) {
         return playerCharacterRepository.findAllByPlayerID(playerId);
     }
 

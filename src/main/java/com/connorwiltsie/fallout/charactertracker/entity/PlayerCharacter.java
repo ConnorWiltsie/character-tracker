@@ -12,10 +12,10 @@ public class PlayerCharacter {
     @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     //Associated Player
-    private int playerID;
+    private long playerID;
     
     //General character information
     private String name;

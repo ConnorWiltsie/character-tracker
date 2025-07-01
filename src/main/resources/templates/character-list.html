@@ -9,6 +9,9 @@
 </head>
 <body>
 <h1>Character List</h1>
+<tr th:each = "character : ${characters}">
+    <td th:text="${character.name}"></td>
+</tr>
 <a th:href="@{character-create}">Create Character</a>
 </body>
 </html>

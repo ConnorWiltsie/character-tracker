@@ -6,6 +6,8 @@ import com.connorwiltsie.fallout.charactertracker.repository.PlayerCharacterRepo
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PlayerCharacterService {
     private final PlayerCharacterRepository playerCharacterRepository;
@@ -19,6 +21,10 @@ public class PlayerCharacterService {
 
     public PlayerCharacter registerCharacter(PlayerCharacter playerCharacter) {
         return playerCharacterRepository.save(playerCharacter);
+    }
+
+    public List<PlayerCharacter> getCharacters(int playerId) {
+        return playerCharacterRepository.findAllByPlayerID(playerId);
     }
 
 }

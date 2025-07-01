@@ -41,6 +41,13 @@ public class PlayerCharacterController {
         int userId = accountService.getUserIdByUsername(authentication.getName());
         playerCharacter.setPlayerID(userId);
         System.out.println(playerCharacterService.registerCharacter(playerCharacter));
+        return "character-create";
+    }
+
+    @GetMapping ("/get-characters")
+    public String getCharacters(Authentication authentication, Model model) {
+        int playerId = accountService.getUserIdByUsername(authentication.getName());
+        model.addAttribute("characters", playerCharacterService.getCharacters(playerId));
         return "character-list";
     }
 

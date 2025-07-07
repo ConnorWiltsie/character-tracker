@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>New Dweller Registration</title>
-    <link rel="stylesheet" th:href="@{/styles.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/base.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/register.css}" type="text/css"/>
 </head>
 <body>
 
-<form class = " registration" th:action="@{/register/save}" th:object="${account}" method="post">
+<form class = "registration" th:action="@{/register/save}" th:object="${account}" method="post">
     <img src = "@{/Vault-Tec-Vintage.png}" alt = "Vault-Tec-Logo">
     <div class = "header">
         <h1>New Dweller Registration</h1>

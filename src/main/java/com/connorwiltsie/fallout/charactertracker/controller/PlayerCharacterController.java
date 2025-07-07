@@ -1,5 +1,6 @@
 package com.connorwiltsie.fallout.charactertracker.controller;
 
+import com.connorwiltsie.fallout.charactertracker.exception.InvalidDataException;
 import com.connorwiltsie.fallout.charactertracker.service.AccountService;
 import com.connorwiltsie.fallout.charactertracker.service.PlayerCharacterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +54,16 @@ public class PlayerCharacterController {
 
     @GetMapping ("/character-view/{id}")
     public String viewCharacter(@PathVariable long id, Authentication authentication, Model model) {
-        return "character-view";
+        PlayerCharacter playerCharacter = playerCharacterService.getCharacterByCharacterID(id);
+        String username = authentication.getName();
+
+        if(!(accountService.getUserIdByUsername(username) == playerCharacter.getPlayerID())) {
+            throw new InvalidDataException("Access Denied");
+        }
+        else {
+            model.addAttribute(playerCharacter);
+            return "character-view";
+        }
     }
 
 

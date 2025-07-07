@@ -39,4 +39,15 @@ public class PlayerCharacterService {
         return playerCharacterRepository.findAllByPlayerID(playerId);
     }
 
+    public PlayerCharacter getCharacterByCharacterID(long id) {
+        Optional<PlayerCharacter> optionalCharacter = playerCharacterRepository.findById(id);
+        if(optionalCharacter.isEmpty()) {
+            throw new ResourceNotFoundException("Character not found");
+        }
+        else {
+            return optionalCharacter.get();
+        }
+
+    }
+
 }

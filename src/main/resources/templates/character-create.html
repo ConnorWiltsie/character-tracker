@@ -8,7 +8,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" th:href="@{/styles.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/base.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/character-create.css}" type="text/css"/>
 </head>
 <body>
 <div class="title">
@@ -26,18 +27,18 @@
             <!-- There is a form-row div for each input to space them properly -->
             <div class="character-create-row">
                 <label for="name">Name</label>
-                <input id="name" th:field="*{name}" type="text"/>
+                <input id="name" th:field="*{name}" type="text" placeholder = "Max Stone"/>
             </div>
 
 
             <div class="character-create-row">
                 <label for="race">Race</label>
-                <input id="race" th:field="*{race}" type="text"/>
+                <input id="race" th:field="*{race}" type="text" placeholder = "Human"/>
             </div>
 
             <div class="character-create-row">
                 <label for="background">Background</label>
-                <input id="background" th:field="*{background}" type="text"/>
+                <input id="background" th:field="*{background}" type="text" placeholder = "Vault Dweller"/>
             </div>
 
             <div class="character-create-row">

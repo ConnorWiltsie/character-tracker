@@ -38,6 +38,7 @@ public class PlayerCharacter {
     private int damageThreshold;
     private int staminaPoints;
     private int hitPoints;
+    private int currentHitPoints;
     private int healingRate;
     private int actionPoints;
 
@@ -58,6 +59,7 @@ public class PlayerCharacter {
     // Inventory & economy
     private int caps;
     private int carryLoad;
+    private String inventory;
 
     // Skills
     private int barter;

@@ -10,7 +10,7 @@
 </head>
 <body>
 <form class = "character-view-form" method="post" th:action="@{/character-view/{id}(id=${character.id})}">
-<div class = "title"><h1 th:text = "${character.name}">Character Name</h1></div>
+<div class = "character-title"><h1 th:text = "${character.name}">Character Name</h1></div>
 </form>
 </body>
 </html>

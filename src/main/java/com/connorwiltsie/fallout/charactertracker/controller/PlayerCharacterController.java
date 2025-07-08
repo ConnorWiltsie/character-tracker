@@ -24,8 +24,10 @@ public class PlayerCharacterController {
 
 
     @GetMapping ("/")
-    public String characterList(Model model) {
-
+    public String characterList(Model model, Authentication authentication) {
+        System.out.println("Authenticated user: " + authentication.getName());
+        long playerId = accountService.getUserIdByUsername(authentication.getName());
+        model.addAttribute("characters", playerCharacterService.getCharacters(playerId));
         return "character-list";
     }
 
@@ -47,6 +49,7 @@ public class PlayerCharacterController {
 
     @GetMapping ("/get-characters")
     public String getCharacters(Authentication authentication, Model model) {
+        System.out.println("Authenticated user: " + authentication.getName());
         long playerId = accountService.getUserIdByUsername(authentication.getName());
         model.addAttribute("characters", playerCharacterService.getCharacters(playerId));
         return "character-list";
@@ -61,9 +64,14 @@ public class PlayerCharacterController {
             throw new InvalidDataException("Access Denied");
         }
         else {
-            model.addAttribute(playerCharacter);
+            model.addAttribute("character", playerCharacter);
             return "character-view";
         }
+    }
+
+    @PostMapping ("/character-view/{id}")
+    public String updateCharacterView(@ModelAttribute("character") PlayerCharacter playerCharacter, @PathVariable long id, Authentication authentication, Model model) {
+        return "character-view";
     }
 
 

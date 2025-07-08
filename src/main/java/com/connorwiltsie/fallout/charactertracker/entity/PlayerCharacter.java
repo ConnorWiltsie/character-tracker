@@ -21,6 +21,7 @@ public class PlayerCharacter {
     private String name;
     private String race;
     private String background;
+    private String traitsAndPerks;
     private int level;
     private int xp;
 
@@ -37,10 +38,12 @@ public class PlayerCharacter {
     private int armorClass;
     private int damageThreshold;
     private int staminaPoints;
+    private int currentStaminaPoints;
     private int hitPoints;
     private int currentHitPoints;
     private int healingRate;
     private int actionPoints;
+    private int currentActionPoints;
 
     // Derived/conditional states
     private String currentConditions;

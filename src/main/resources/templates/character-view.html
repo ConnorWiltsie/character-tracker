@@ -4,10 +4,13 @@
 >
 <head>
     <link rel="stylesheet" th:href="@{/base.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/character-view}" type="text/css"/>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
+<form class = "character-view-form" method="post" th:action="@{/character-view/{id}(id=${character.id})}">
+<div class = "title"><h1 th:text = "${character.name}">Character Name</h1></div>
+</form>
 </body>
 </html>

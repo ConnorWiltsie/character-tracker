@@ -4,13 +4,57 @@
 >
 <head>
     <link rel="stylesheet" th:href="@{/base.css}" type="text/css"/>
-    <link rel="stylesheet" th:href="@{/character-view}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/character-view.css}" type="text/css"/>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<form class = "character-view-form" method="post" th:action="@{/character-view/{id}(id=${character.id})}">
-<div class = "character-title"><h1 th:text = "${character.name}">Character Name</h1></div>
+<form class = "character-form" th:object="${character}" method="post" th:action="@{/character-view/{id}(id=${character.id})}">
+    <div class = "character-title"><h1 th:text = "${character.name}">Character Name</h1></div>
+    <div class = "character-SPECIAL">
+        <div><span>S</span> <span th:text = *{strength}></span></div>
+        <div><span>P</span> <span th:text = *{perception}></span></div>
+        <div><span>E</span> <span th:text = *{endurance}></span></div>
+        <div><span>C</span> <span th:text = *{charisma}></span></div>
+        <div><span>I</span> <span th:text = *{intelligence}></span></div>
+        <div><span>A</span> <span th:text = *{agility}></span></div>
+        <div><span>L</span> <span th:text = *{luck}></span></div>
+    </div>
+    <div class = "character-combat">
+        <div class = "stamina-points"><div>Stamina Points:</div>
+            <input type="number"
+                   th:field="*{currentStaminaPoints}"
+                   th:value="*{currentStaminaPoints}"
+                   min="0"
+                   th:max="*{staminaPoints}"
+            />
+            <span>/</span>
+            <span th:text="*{staminaPoints}">20</span>
+        </div>
+        <div class = "hit-points">Hit Points</div>
+            <input type="number"
+                   th:field="*{currentHitPoints}"
+                   th:value="*{currentHitPoints}"
+                   min="0"
+                   th:max="*{hitPoints}"
+            />
+            <span>/</span>
+            <span th:text="*{hitPoints}">20</span>
+        <div><span>Armor Class: </span> <span th:text = *{armorClass}></span></div>
+        <div><span>Damage Threshold: </span> <span th:text = *{damageThreshold}></span></div>
+        <div><span>Action Points: </span>
+            <input type="number"
+                   th:field="*{currentActionPoints}"
+                   th:value="*{currentActionPoints}"
+                   min="0"
+                   th:max="*{actionPoints}"
+            />
+            <span>/</span>
+            <span th:text="*{actionPoints}">20</span>
+        </div>
+        <div><span>Combat Sequence: </span> <span th:text = "*{combatSequence}"></span></div>
+        <div><span>Passive Sense: </span> <span th:text = "*{passiveSense}"></span></div>
+    </div>
 </form>
 </body>
 </html>

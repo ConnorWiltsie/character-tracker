@@ -9,8 +9,8 @@
     <title>Title</title>
 </head>
 <body>
+<div class = "character-title"><h1 th:text = "${character.name}">Character Name</h1></div>
 <form class = "character-form" th:object="${character}" method="post" th:action="@{/character-view/{id}(id=${character.id})}">
-    <div class = "character-title"><h1 th:text = "${character.name}">Character Name</h1></div>
     <div class = "character-SPECIAL">
         <div><span>S</span> <span th:text = *{strength}></span></div>
         <div><span>P</span> <span th:text = *{perception}></span></div>
@@ -24,7 +24,6 @@
         <div class = "stamina-points"><div>Stamina Points:</div>
             <input type="number"
                    th:field="*{currentStaminaPoints}"
-                   th:value="*{currentStaminaPoints}"
                    min="0"
                    th:max="*{staminaPoints}"
             />
@@ -34,7 +33,6 @@
         <div class = "hit-points">Hit Points</div>
             <input type="number"
                    th:field="*{currentHitPoints}"
-                   th:value="*{currentHitPoints}"
                    min="0"
                    th:max="*{hitPoints}"
             />
@@ -45,7 +43,6 @@
         <div><span>Action Points: </span>
             <input type="number"
                    th:field="*{currentActionPoints}"
-                   th:value="*{currentActionPoints}"
                    min="0"
                    th:max="*{actionPoints}"
             />
@@ -54,6 +51,43 @@
         </div>
         <div><span>Combat Sequence: </span> <span th:text = "*{combatSequence}"></span></div>
         <div><span>Passive Sense: </span> <span th:text = "*{passiveSense}"></span></div>
+    </div>
+    <div class = "skills">
+        <div><span>Barter: </span><span th:text="*{barter}"></span></div>
+        <div><span>Breach: </span><span th:text="*{breach}"> </span></div>
+        <div><span>Crafting: </span><span th:text="*{crafting}"> </span></div>
+        <div><span>Energy Weapons: </span><span th:text="*{energyWeapons}"> </span></div>
+        <div><span>Explosives: </span><span th:text="*{explosives}"> </span></div>
+        <div><span>Guns: </span><span th:text="*{guns}"> </span></div>
+        <div><span>Intimidation: </span><span th:text="*{intimidation}"> </span></div>
+        <div><span>Medicine: </span><span th:text="*{medicine}"> </span></div>
+        <div><span>Melee Weapons: </span><span th:text="*{meleeWeapons}"> </span></div>
+        <div><span>Science: </span><span th:text="*{science}"> </span></div>
+        <div><span>Sneak: </span><span th:text="*{sneak}"> </span></div>
+        <div><span>Speech: </span><span th:text="*{speech}"> </span></div>
+        <div><span>Survival: </span><span th:text="*{survival}"> </span></div>
+        <div><span>Unarmed: </span><span th:text="*{unarmed}"> </span></div>
+        <div><span>Breach: </span><span th:text="*{pilot}"> </span></div>
+    </div>
+
+    <div class = "survival">
+        <div><span>Party Nerve: </span><span th:text="*{partyNerve}"> </span></div>
+        <div><span>Group Sneak: </span><span th:text="*{groupSneak}"> </span></div>
+        <div><span>Levels of Hunger: </span><span th:text="*{hungerLevel}"> </span></div>
+        <div><span>Levels of Exhaustion: </span><span th:text="*{exhaustionLevel}"> </span></div>
+        <div><span>Radiation DC: </span><span> </span></div>
+        <div><span>Levels of Radiation: </span><span th:text="*{radiationLevel}"> </span></div>
+    </div>
+
+    <div class = "traits-and-perks">
+        <label> Traits and Perks
+            <textarea></textarea>
+        </label>
+    </div>
+
+    <div class = "inventory">
+        <label> Inventory </label>
+        <textarea></textarea>
     </div>
 </form>
 </body>

@@ -71,22 +71,36 @@
     </div>
 
     <div class = "survival">
+        <div><span>Levels of Hunger: </span><input type="number"
+                                                   th:field="*{hungerLevel}"
+                                                   min="0"
+                                                   th:max="10"/></div>
+
+        <div><span>Levels of Exhaustion: </span><input type="number"
+                                                       th:field="*{exhaustionLevel}"
+                                                       min="0"
+                                                       th:max="10"/></div>
+
+        <div><span>Levels of Radiation: </span><input type="number"
+                                                      th:field="*{radiationLevel}"
+                                                      min="0"
+                                                      th:max="10"/></div>
+
+        <div><span>Radiation DC: </span><span> </span></div>
         <div><span>Party Nerve: </span><span th:text="*{partyNerve}"> </span></div>
         <div><span>Group Sneak: </span><span th:text="*{groupSneak}"> </span></div>
-        <div><span>Levels of Hunger: </span><span th:text="*{hungerLevel}"> </span></div>
-        <div><span>Levels of Exhaustion: </span><span th:text="*{exhaustionLevel}"> </span></div>
-        <div><span>Radiation DC: </span><span> </span></div>
-        <div><span>Levels of Radiation: </span><span th:text="*{radiationLevel}"> </span></div>
+
+
     </div>
 
     <div class = "traits-and-perks">
-        <label> Traits and Perks
-            <textarea></textarea>
-        </label>
+        <div>Traits and Perks</div>
+        <textarea></textarea>
+
     </div>
 
     <div class = "inventory">
-        <label> Inventory </label>
+        <div>Inventory</div>
         <textarea></textarea>
     </div>
 </form>

@@ -32,6 +32,9 @@ public class PlayerCharacterService {
     }
 
     public PlayerCharacter registerCharacter(PlayerCharacter playerCharacter) {
+        playerCharacter.setCurrentHitPoints(playerCharacter.getHitPoints());
+        playerCharacter.setCurrentActionPoints(playerCharacter.getActionPoints());
+        playerCharacter.setCurrentStaminaPoints(playerCharacter.getStaminaPoints());
         return playerCharacterRepository.save(playerCharacter);
     }
 

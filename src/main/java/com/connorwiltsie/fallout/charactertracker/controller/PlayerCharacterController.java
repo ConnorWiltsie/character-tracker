@@ -87,6 +87,12 @@ public class PlayerCharacterController {
         return "character-view";
     }
 
+    @DeleteMapping("/characters/{id}")
+    public String deleteCharacter(@PathVariable Long id) {
+        playerCharacterService.delete(id);
+        return "character-list";
+    }
+
 
 
 }

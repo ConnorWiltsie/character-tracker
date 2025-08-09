@@ -5,8 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" th:href="@{base.css}" type="text/css"/>
-    <link rel="stylesheet" th:href="@{character-list.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/base.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/character-list.css}" type="text/css"/>
 </head>
 <body>
 <div class="section">
@@ -15,6 +15,11 @@
         <div th:each="character : ${characters}">
             <a th:href="@{/character-view/{id}(id=${character.id})}"
                th:text="${character.name}">Character Name</a>
+            <form th:action="@{/characters/{id}(id=${character.id})}" method="post"
+                  onsubmit="return confirm('Are you sure you want to delete this character?');">
+                <input type="hidden" name="_method" value="delete" />
+                <button type="submit">Delete</button>
+            </form>
         </div>
     </div>
     <a th:href="@{character-create}">Create Character</a>

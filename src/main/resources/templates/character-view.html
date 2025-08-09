@@ -101,7 +101,10 @@
                                                       th:field="*{radiationLevel}"
                                                       min="0"
                                                       th:max="10"/></div>
-
+        <div class = "survival-field"><span>Levels of Dehydration: </span><input type="number"
+                                                                               th:field="*{dehydrationLevel}"
+                                                                               min="0"
+                                                                               th:max="10"/></div>
         <div class = "survival-field"><span>Radiation DC: </span><span> </span></div>
         <div class = "survival-field"><span>Party Nerve: </span><span th:text="*{partyNerve}"> </span></div>
         <div class = "survival-field"><span>Group Sneak: </span><span th:text="*{groupSneak}"> </span></div>

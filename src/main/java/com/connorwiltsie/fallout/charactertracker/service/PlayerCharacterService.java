@@ -38,6 +38,10 @@ public class PlayerCharacterService {
         return playerCharacterRepository.save(playerCharacter);
     }
 
+    public PlayerCharacter save(PlayerCharacter playerCharacter) {
+        return playerCharacterRepository.save(playerCharacter);
+    }
+
     public List<PlayerCharacter> getCharacters(long playerId) {
         return playerCharacterRepository.findAllByPlayerID(playerId);
     }

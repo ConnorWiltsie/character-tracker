@@ -71,6 +71,19 @@ public class PlayerCharacterController {
 
     @PostMapping ("/character-view/{id}")
     public String updateCharacterView(@ModelAttribute("character") PlayerCharacter playerCharacter, @PathVariable long id, Authentication authentication, Model model) {
+
+        PlayerCharacter existingCharacter = playerCharacterService.getCharacterByCharacterID(id);
+        existingCharacter.setCurrentHitPoints(playerCharacter.getCurrentHitPoints());
+        existingCharacter.setCurrentStaminaPoints(playerCharacter.getCurrentStaminaPoints());
+        existingCharacter.setCurrentActionPoints(playerCharacter.getCurrentActionPoints());
+        existingCharacter.setHungerLevel(playerCharacter.getHungerLevel());
+        existingCharacter.setExhaustionLevel(playerCharacter.getExhaustionLevel());
+        existingCharacter.setRadiationLevel(playerCharacter.getRadiationLevel());
+        existingCharacter.setInventory(playerCharacter.getInventory());
+        existingCharacter.setTraitsAndPerks(playerCharacter.getTraitsAndPerks());
+
+        playerCharacterService.save(existingCharacter);
+
         return "character-view";
     }
 

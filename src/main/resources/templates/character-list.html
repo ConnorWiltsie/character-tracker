@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th ="http://www.thymeleaf.org"
+      xmlns:th="http://www.thymeleaf.org"
 >
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" th:href="@{base.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{character-list.css}" type="text/css"/>
 </head>
 <body>
-<h1>Character List</h1>
-<div class = "character-list">
-    <div th:each = "character : ${characters}">
-        <a th:href="@{/character-view/{id}(id=${character.id})}"
-           th:text="${character.name}">Character Name</a>
+<div class="section">
+    <h1>Character List</h1>
+    <div class="character-list">
+        <div th:each="character : ${characters}">
+            <a th:href="@{/character-view/{id}(id=${character.id})}"
+               th:text="${character.name}">Character Name</a>
+        </div>
     </div>
+    <a th:href="@{character-create}">Create Character</a>
 </div>
-<a th:href="@{character-create}">Create Character</a>
 </body>
 </html>

@@ -112,7 +112,7 @@ public class PlayerCharacterService {
         existingCharacter.setDehydrationLevel(updatedCharacter.getDehydrationLevel());
         existingCharacter.setExhaustionLevel(updatedCharacter.getExhaustionLevel());
         existingCharacter.setRadiationLevel(updatedCharacter.getRadiationLevel());
-        existingCharacter.setRadsLevel(updatedCharacter.getRadsLevel());
+        existingCharacter.setRadiationDC(updatedCharacter.getRadiationDC());
 
         // Derived stats
         existingCharacter.setCombatSequence(updatedCharacter.getCombatSequence());

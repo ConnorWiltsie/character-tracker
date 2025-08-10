@@ -57,7 +57,7 @@ public class PlayerCharacter {
     private int dehydrationLevel;
     private int exhaustionLevel;
     private int radiationLevel;
-    private int radsLevel;
+    private int radiationDC;
 
     // Inventory & economy
     private int caps;

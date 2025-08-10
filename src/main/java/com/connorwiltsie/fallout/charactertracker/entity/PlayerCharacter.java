@@ -21,6 +21,8 @@ public class PlayerCharacter {
     private String name;
     private String race;
     private String background;
+
+    @Column(columnDefinition = "MEDIUMTEXT")
     private String traitsAndPerks;
     private int level;
     private int xp;
@@ -62,6 +64,8 @@ public class PlayerCharacter {
     // Inventory & economy
     private int caps;
     private int carryLoad;
+
+    @Column(columnDefinition = "MEDIUMTEXT")
     private String inventory;
 
     // Skills

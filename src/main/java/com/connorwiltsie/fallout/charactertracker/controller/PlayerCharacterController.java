@@ -80,9 +80,10 @@ public class PlayerCharacterController {
         existingCharacter.setRadiationLevel(playerCharacter.getRadiationLevel());
         existingCharacter.setInventory(playerCharacter.getInventory());
         existingCharacter.setTraitsAndPerks(playerCharacter.getTraitsAndPerks());
-
+        existingCharacter.setDehydrationLevel(playerCharacter.getDehydrationLevel());
         playerCharacterService.save(existingCharacter);
 
+        model.addAttribute("character", existingCharacter);
         return "character-view";
     }
 

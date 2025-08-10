@@ -1,3 +1,10 @@
 .section {
-    margin: 20px;
+    margin-top: 0px;
+    margin-left: 20px;
+}
+
+.header-nav {
+    margin-left: 20px;
+    margin-top: 15px;
+    margin-bottom: 0px;
 }

@@ -9,6 +9,12 @@
     <link rel="stylesheet" th:href="@{/character-list.css}" type="text/css"/>
 </head>
 <body>
+<div class="header-nav">
+        <form th:action="@{/logout}" method="post" style="display: inline;">
+            <button type="submit" class="nav-button">Logout</button>
+        </form>
+</div>
+</div>
 <div class="section">
     <h1>Character List</h1>
     <div class="character-list">

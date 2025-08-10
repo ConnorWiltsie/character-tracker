@@ -1,0 +1,75 @@
+.character-create-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.character-create-skills-grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.character-create-title {
+
+}
+
+.character-create-general {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.character-create-special {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.character-create-skills {
+    grid-column: 1 / 3;
+    grid-row: 2;
+}
+
+.character-create-health {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.character-create-survival {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.character-create-conditional {
+    grid-column: 1 / 3;
+    grid-row: 4;
+}
+
+.character-create-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.character-create-row label {
+    min-width: 120px;
+    text-align: left;
+}
+
+.character-create-row input {
+    min-width: 80px;
+}
+
+.create-footer {
+    grid-column: 1 / 3;
+    grid-row: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}

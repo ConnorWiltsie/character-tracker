@@ -60,4 +60,67 @@ public class PlayerCharacterService {
     public void delete(Long id) {
         playerCharacterRepository.deleteById(id);
     }
+
+    public PlayerCharacter updateCharacter(PlayerCharacter updatedCharacter) {
+        // Find the existing character
+        PlayerCharacter existingCharacter = findById(updatedCharacter.getId());
+
+        // Update all the fields from the form
+        // General Information
+        existingCharacter.setName(updatedCharacter.getName());
+        existingCharacter.setRace(updatedCharacter.getRace());
+        existingCharacter.setBackground(updatedCharacter.getBackground());
+        existingCharacter.setLevel(updatedCharacter.getLevel());
+        existingCharacter.setXp(updatedCharacter.getXp());
+
+        // S.P.E.C.I.A.L attributes
+        existingCharacter.setStrength(updatedCharacter.getStrength());
+        existingCharacter.setPerception(updatedCharacter.getPerception());
+        existingCharacter.setEndurance(updatedCharacter.getEndurance());
+        existingCharacter.setCharisma(updatedCharacter.getCharisma());
+        existingCharacter.setIntelligence(updatedCharacter.getIntelligence());
+        existingCharacter.setAgility(updatedCharacter.getAgility());
+        existingCharacter.setLuck(updatedCharacter.getLuck());
+
+        // Skills
+        existingCharacter.setBarter(updatedCharacter.getBarter());
+        existingCharacter.setBreach(updatedCharacter.getBreach());
+        existingCharacter.setCrafting(updatedCharacter.getCrafting());
+        existingCharacter.setEnergyWeapons(updatedCharacter.getEnergyWeapons());
+        existingCharacter.setExplosives(updatedCharacter.getExplosives());
+        existingCharacter.setGuns(updatedCharacter.getGuns());
+        existingCharacter.setIntimidation(updatedCharacter.getIntimidation());
+        existingCharacter.setMedicine(updatedCharacter.getMedicine());
+        existingCharacter.setMeleeWeapons(updatedCharacter.getMeleeWeapons());
+        existingCharacter.setScience(updatedCharacter.getScience());
+        existingCharacter.setSneak(updatedCharacter.getSneak());
+        existingCharacter.setSpeech(updatedCharacter.getSpeech());
+        existingCharacter.setSurvival(updatedCharacter.getSurvival());
+        existingCharacter.setUnarmed(updatedCharacter.getUnarmed());
+        existingCharacter.setPilot(updatedCharacter.getPilot());
+
+        // Health and combat stats
+        existingCharacter.setArmorClass(updatedCharacter.getArmorClass());
+        existingCharacter.setDamageThreshold(updatedCharacter.getDamageThreshold());
+        existingCharacter.setStaminaPoints(updatedCharacter.getStaminaPoints());
+        existingCharacter.setHitPoints(updatedCharacter.getHitPoints());
+        existingCharacter.setHealingRate(updatedCharacter.getHealingRate());
+        existingCharacter.setActionPoints(updatedCharacter.getActionPoints());
+
+        // Survival conditions
+        existingCharacter.setHungerLevel(updatedCharacter.getHungerLevel());
+        existingCharacter.setDehydrationLevel(updatedCharacter.getDehydrationLevel());
+        existingCharacter.setExhaustionLevel(updatedCharacter.getExhaustionLevel());
+        existingCharacter.setRadiationLevel(updatedCharacter.getRadiationLevel());
+        existingCharacter.setRadsLevel(updatedCharacter.getRadsLevel());
+
+        // Derived stats
+        existingCharacter.setCombatSequence(updatedCharacter.getCombatSequence());
+        existingCharacter.setPassiveSense(updatedCharacter.getPassiveSense());
+        existingCharacter.setPartyNerve(updatedCharacter.getPartyNerve());
+        existingCharacter.setGroupSneak(updatedCharacter.getGroupSneak());
+
+        // Save and return
+        return playerCharacterRepository.save(existingCharacter);
+    }
 }

@@ -49,7 +49,6 @@ public class PlayerCharacterController {
 
     @GetMapping ("/get-characters")
     public String getCharacters(Authentication authentication, Model model) {
-        System.out.println("Authenticated user: " + authentication.getName());
         long playerId = accountService.getUserIdByUsername(authentication.getName());
         model.addAttribute("characters", playerCharacterService.getCharacters(playerId));
         return "character-list";
@@ -90,9 +89,20 @@ public class PlayerCharacterController {
     @DeleteMapping("/characters/{id}")
     public String deleteCharacter(@PathVariable Long id) {
         playerCharacterService.delete(id);
-        return "character-list";
+        return "redirect:/";
     }
 
+    @GetMapping("/character-edit/{id}")
+    public String getEditableCharacter(@PathVariable Long id, Model model, Authentication authentication) {
+        PlayerCharacter playerCharacter = playerCharacterService.findById(id);
+        model.addAttribute("playerCharacter", playerCharacter);
+        return "character-edit";
+    }
 
+    @PostMapping("/character-edit/{id}")
+    public String postEditedCharacter(@PathVariable Long id, @ModelAttribute PlayerCharacter playerCharacter, Authentication authentication) {
+
+        return "redirect:/character-edit/" + id;
+    }
 
 }

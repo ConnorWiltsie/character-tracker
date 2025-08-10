@@ -10,11 +10,11 @@
 </head>
 <body>
 <div class="title">
-    <h1>Character Create</h1>
+    <h1>Character Edit</h1>
 </div>
 
 <!-- Form for the whole character creation webpage -->
-<form class="character-create-form" method="post" th:action="@{/character-edit}" th:object="${playerCharacter}">
+<form class="character-create-form" method="post" th:action="@{/character-edit/{id}(id=${playerCharacter.id})}" th:object="${playerCharacter}">
 
     <div class="character-create-general">
         <h2>General Information</h2>

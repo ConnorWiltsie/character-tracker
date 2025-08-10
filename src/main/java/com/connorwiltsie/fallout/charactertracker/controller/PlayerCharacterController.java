@@ -102,8 +102,14 @@ public class PlayerCharacterController {
 
     @PostMapping("/character-edit/{id}")
     public String postEditedCharacter(@PathVariable Long id, @ModelAttribute PlayerCharacter playerCharacter, Authentication authentication) {
+        // Set the ID to ensure we're updating the existing character
+        playerCharacter.setId(id);
 
-        return "redirect:/character-edit/" + id;
+        // Update the character using your service method
+        playerCharacterService.updateCharacter(playerCharacter);
+
+        // Redirect to character view page instead
+        return "redirect:/character-view/" + id;
     }
 
 }
